@@ -20,6 +20,8 @@ N/A
 
 Please follow the link below to the deployed website of my portfolio:
 
+https://figgersrm.github.io/Javascript-Quiz-C4/
+
 ## Credits
 
 CSS rest file: Eric Meyer https://cssdeck.com/blog/scripts/eric-meyer-reset-css/
