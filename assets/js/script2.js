@@ -1,15 +1,20 @@
-nameEl = document.getElementById("name");
-scoreEl = document.getElementById("score");
+scoresEl = document.getElementById('scores');
+listEl = document.getElementById('list')
 goBackBtn = document.getElementById("goBackBtn");
 clearBtn = document.getElementById("clearBtn");
-lastScore = JSON.parse(localStorage.getItem("savedResults"));
+results = JSON.parse(localStorage.getItem("savedResults")) || [];
 
-nameEl.textContent = lastScore.name;
-scoreEl.textContent = lastScore.score;
+for (var i = 0; i < results.length; i++) {
+  console.log(results[i]);
+  console.log(results[i].name);
+  var scoreEl = document.createElement('li');
+  scoreEl.textContent = results[i].name + " " + results[i].score;
+  listEl.appendChild(scoreEl);
+}
 
 goBackBtn.addEventListener("click", function () {
-    window.location.href = "./index.html";
-})
+  window.location.href = "./index.html";
+});
 clearBtn.addEventListener("click", function () {
-    localStorage.clear();
-})
+  localStorage.clear();
+});

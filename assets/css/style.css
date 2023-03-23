@@ -1,78 +1,79 @@
 * {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 #container {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 80;
-    position: relative;
-    border: 3px solid blue;
-    width: 60%;
-    margin: 10px auto;
-    border-radius: 20px;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 80;
+  position: relative;
+  border: 3px solid blue;
+  width: 60%;
+  margin: 10px auto;
+  border-radius: 20px;
+  justify-content: center;
 }
 
 h1 {
-    font-size: 200%;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px;
+  font-size: 200%;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
 }
 
 h2 {
-    font-size: 125%;
-    text-align: center;
-    margin: 10px 30px;
+  font-size: 125%;
+  text-align: center;
+  margin: 10px 30px;
 }
 
 #timer {
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    font-size: 150%;
-    font-weight: bold;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  font-size: 150%;
+  font-weight: bold;
 }
 
 #start-button {
-    width: 20%;
-    margin: 20px auto;
-    border-radius: 20px;
-    background-color: blue;
-    color: white;
+  width: 20%;
+  margin: 20px auto;
+  border-radius: 20px;
+  background-color: blue;
+  color: white;
 }
 
 ul {
-    margin: 5px auto;
-    text-align: center;
+  margin: 5px auto;
+  text-align: center;
 }
 
 li button {
-    margin: 5px;
-    align-items: center;
-    border-radius: 20px;
-    background-color: blue;
-    color: white;
+  margin: 5px;
+  align-items: center;
+  border-radius: 20px;
+  background-color: blue;
+  color: white;
 }
 
 #name {
-    width: 30%;
-    margin: 20px auto;
+  width: 30%;
+  margin: 20px auto;
 }
 
 #submitBtn {
-    width: 20%;
-    margin: 20px auto;
-    border-radius: 20px;
-    background-color: blue;
-    color: white;
+  width: 20%;
+  margin: 20px auto;
+  border-radius: 20px;
+  background-color: blue;
+  color: white;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .revealed {
-    display: normal;
+  display: normal;
 }

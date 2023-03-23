@@ -1,0 +1,42 @@
+/* #scoreContainer {
+  display: flex;
+  flex-wrap: wrap; */
+  /* flex-direction: column; */
+  /* flex: 1 1 80;
+  border: 3px solid blue;
+  text-align: center;
+} */
+
+#headers {
+  display: flex;
+  font-size: 175%;
+  font-weight: bold;
+  margin: auto;
+  flex: 1 1 100;
+  /* align-items: space-around; */
+  /* width: 50%; */
+}
+
+h1 {
+  font-size: 125%;
+  font-weight: bold;
+  margin: auto;
+  /* align-items: space-around; */
+  border: 3px solid blue;
+}
+
+#goBackBtn {
+  /* width: 20%; */
+  margin: 20px auto;
+  border-radius: 20px;
+  background-color: blue;
+  color: white;
+}
+
+#clearBtn {
+  /* width: 20%; */
+  margin: 20px auto;
+  border-radius: 20px;
+  background-color: blue;
+  color: white;
+}

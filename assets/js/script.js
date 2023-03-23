@@ -7,8 +7,8 @@ timerEl = document.getElementById("timer");
 nameEl = document.getElementById("name");
 var timerInterval;
 var secondsLeft = 75;
-var score = 0;
 var questions = [];
+var savedResults = JSON.parse(localStorage.getItem("savedResults")) || [];
 var i = 0;
 a1Button = document.getElementById("a1Button");
 a2Button = document.getElementById("a2Button");
@@ -33,7 +33,7 @@ var q2 = {
   a2: "document.querySelectorAll()",
   a3: "document.querySelector()",
   a4: "document.setAttribute()",
-  ans: "document.getElementById()",
+  ans: "document.getElementById()"
 };
 questions.push(q2);
 
@@ -53,6 +53,8 @@ startButton.addEventListener("click", function () {
   askQuestions();
 });
 
+var eventListenerAdded = false;
+
 function askQuestions() {
   if (i < questions.length && secondsLeft > 0) {
     h2El.textContent = questions[i].question;
@@ -60,21 +62,25 @@ function askQuestions() {
     a2Button.textContent = questions[i].a2;
     a3Button.textContent = questions[i].a3;
     a4Button.textContent = questions[i].a4;
-    var answer = questions[i].ans;
-    ulEl.addEventListener("click", checkAnswer);
-    function checkAnswer(event) {
-      console.log(event.target.textContent);
-      if (event.target.textContent === answer) {
-        score += 10;
-        i++;
-        console.log(score);
-      } else {
-        secondsLeft = secondsLeft - 10;
-        i++;
+    if (!eventListenerAdded) {
+      eventListenerAdded = true;
+      ulEl.addEventListener("click", checkAnswer);
+      function checkAnswer(event) {
+        var answer = questions[i].ans;
+        console.log(event);
+        console.log(event.target.textContent, answer);
+        if (event.target.textContent === answer) {
+          i++;
+          askQuestions();
+        } else {
+          secondsLeft = secondsLeft - 10;
+          i++;
+          askQuestions();
+        }
       }
-      askQuestions();
     }
-  } else {
+    }
+    else {
     h2El.textContent = "";
     a1Button.remove();
     a2Button.remove();
@@ -82,26 +88,24 @@ function askQuestions() {
     a4Button.remove();
     clearInterval(timerInterval);
     timerEl.setAttribute("style", "display: none");
-    // console.log(score);
-    // console.log(secondsLeft);
     resultsPage();
   }
 }
 
 function resultsPage() {
-  score = score + secondsLeft;
-  h1El.textContent = "Your Score: " + score;
+  h1El.textContent = "Your Score: " + secondsLeft;
   h2El.textContent =
     "To save your score, type in your name or initials below and click submit.";
   nameEl.setAttribute("class", "revealed");
   submitBtn.setAttribute("class", "revealed");
   nameEl.placeholder = "Name or Initials";
   submitBtn.addEventListener("click", function () {
-    var savedResults = {
-      name : nameEl.value,
-      score: score,
-    }
+    var newResult = {
+      name: nameEl.value,
+      score: secondsLeft,
+    };
+    savedResults.push(newResult);
     localStorage.setItem("savedResults", JSON.stringify(savedResults));
     window.location.href = "./index2.html";
-  })
+  });
 }
